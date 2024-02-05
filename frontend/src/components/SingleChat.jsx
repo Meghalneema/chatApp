@@ -6,7 +6,7 @@ import { IconButton, Spinner, useToast } from "@chakra-ui/react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import axios from "axios";
 // const ENDPOINT = "http://localhost:5001";
-const ENDPOINT="https://chatapp-with-socketio.onrender.com:5001";
+const ENDPOINT="https://chatapp-with-socketio.onrender.com";
 
 var socket, selectedChatCompare;
 
