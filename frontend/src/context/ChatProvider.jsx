@@ -9,8 +9,8 @@ const ChatProvider = ({ children }) => {
   const [chats, setChats] = useState([]);  /////
   const navigate = useNavigate();
   const [notification, setNotification] = useState([]);
-  const baseUrl="http://localhost:5001";
-  // const baseUrl="https://chatapp-socketio-iuu9.onrender.com";
+  // const baseUrl="http://localhost:5001";
+  const baseUrl="https://chatapp-with-socketio.onrender.com:5001";
 
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
