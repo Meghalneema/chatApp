@@ -10,7 +10,7 @@ const ChatProvider = ({ children }) => {
   const navigate = useNavigate();
   const [notification, setNotification] = useState([]);
   // const baseUrl="http://localhost:5001";
-  const baseUrl="https://chatapp-with-socketio.onrender.com:5001";
+  const baseUrl="https://chatapp-with-socketio.onrender.com";
 
   useEffect(() => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
