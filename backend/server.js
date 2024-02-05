@@ -9,7 +9,12 @@ port= process.env.port || 5000;
 const { UserRouter } = require("./routes/userRoutes");
 const { chatRouter } = require("./routes/chatRoutes");
 const { messageRouter } = require("./routes/messageRoutes");
-// const path = require("path");
+// --------------------------deployment------------------------------
+
+const path = require("path");
+const __dirname1 = path.resolve();
+// --------------------------deployment------------------------------
+
 
 connectDB();
 const app= express();
@@ -20,6 +25,31 @@ app.use(cors());
 app.use(UserRouter);
 app.use(chatRouter);
 app.use(messageRouter);
+
+// --------------------------deployment------------------------------
+
+
+if (process.env.NODE_ENV === "production") {
+  // app.use(express.static(path.join(__dirname1, "/frontend/build")));
+  app.use(express.static(path.join(__dirname1, "/frontend")));
+  app.get("*", (req, res) =>
+    // res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"))
+    res.join(path.resolve(__dirname1, "frontend", "index.html"))
+
+  );
+} else {
+  app.get("/", (req, res) => {
+    res.send("API is running..");
+  });
+}
+
+// --------------------------deployment------------------------------
+
+
+
+
+
+
 
 app.use(notFound)
 app.use(errorHandler)
