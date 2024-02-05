@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 // const baseUrl = "http://localhost:5001";
-const baseUrl="https://chatapp-with-socketio.onrender.com:5001";
+const baseUrl="https://chatapp-with-socketio.onrender.com";
 
 
 const registerUser = async (name, email, password,  pic, config)=>{
