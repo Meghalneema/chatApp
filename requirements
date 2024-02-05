@@ -1,11 +1,12 @@
-backend
+                                                      BACKEND
 cd backend
 npm init
-npm i express dotenv nodemon cors mongoose express-async-handler jsonwebtoken bcryptjs socket.io
+npm i express dotenv nodemon cors mongoose express-async-handler jsonwebtoken bcryptjs socket.io openai
 
-multer firebase
+multer firebase 
 
-
+==============================================================================
+                                                      FRONTEND
 for creating the frontend folder in cmd write  
                                   npm create vite@latest(project name), react, javascript
                                   cd todoList 
@@ -23,19 +24,6 @@ for creating the frontend folder in cmd write
 react - 18.2.0
 react-router-dom - 18.2.0
 
-npm i @chakra-ui/react 
-npm i axios
-
-npm i @chakra-ui/form-control @chakra-ui/hooks @chakra-ui/icons @chakra-ui/avatar @chakra-ui/button @chakra-ui/layout @chakra-ui/input @chakra-ui/menu @chakra-ui/modal @chakra-ui/tooltip @chakra-ui/toast @chakra-ui/spinner
-react-scrollable-feed
-react-router-dom
-socket.io-client
-
-
-react-notification-badge
-react-lottie
-
-
-npm install react-badge
-import { Badge } from "react-badge";
-<Badge count={notification.length} />
+installation for FRONTEND
+npm i axios react-scrollable-feed react-router-dom socket.io-client react-badge lottie-react
+npm i @chakra-ui/react @chakra-ui/form-control @chakra-ui/hooks @chakra-ui/icons @chakra-ui/avatar @chakra-ui/button @chakra-ui/layout @chakra-ui/input @chakra-ui/menu @chakra-ui/modal @chakra-ui/tooltip @chakra-ui/toast @chakra-ui/spinner

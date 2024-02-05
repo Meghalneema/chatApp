@@ -5,7 +5,7 @@ import { Input } from "@chakra-ui/input";
 import {Menu, MenuButton, MenuList, MenuItem, MenuDivider, } from "@chakra-ui/menu";
 import {Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent,} from "@chakra-ui/modal";
 import { Tooltip } from "@chakra-ui/tooltip";
-import { BellIcon, ChevronDownIcon } from "@chakra-ui/icons";
+import { BellIcon, ChevronDownIcon , SearchIcon} from "@chakra-ui/icons";
 import { Avatar } from "@chakra-ui/avatar";
 import { useState } from "react";
 import axios from "axios";
@@ -49,17 +49,30 @@ const SideDrawer = () => {
     navigate("/")
   }
 
-  const handleSearch=async()=>{
-    if(!search){
-      toast({
-          title: "search is empty",
-          description: "please enter something to search",
-          duration: 2000,
-          isClosable: true,
-          position:"top-left",
-        })
-        return
-    }
+  const handleSearch=async(value)=>{
+    setSearch(value);
+  //   setTimeout(() => {
+  //   if (!value) {
+  //     toast({
+  //       title: "Search is empty",
+  //       description: "Please enter something to search",
+  //       duration: 2000,
+  //       isClosable: true,
+  //       position: "top-left",
+  //     });
+  //   }
+  // }, 500);
+
+    // if(!search){
+    //   toast({
+    //       title: "search is empty",
+    //       description: "please enter something to search",
+    //       duration: 2000,
+    //       isClosable: true,
+    //       position:"top-left",
+    //     })
+    //     return
+    // }
     try{
       setLoading(true);
 
@@ -125,6 +138,7 @@ const SideDrawer = () => {
           <Tooltip label="search user to chat" hasArrow placement='bottom-end'>
             <Button variant='ghost' onClick={onOpen}>
               <i className="fas fa-search"></i>
+              <SearchIcon fontSize="2xl" m="1px"/>
               <Text d={{ base: "none", md: "flex" }} px="4px" > Search User </Text>
             </Button>
           </Tooltip>
@@ -176,8 +190,13 @@ const SideDrawer = () => {
               <DrawerHeader borderBottomWidth="1px">Search Users</DrawerHeader>
               <DrawerBody>
                 <Box display="flex" paddingBottom="2px" >
-                  <Input placeholder="Search by name or email" marginRight="2" value={search} onChange={(e) => setSearch(e.target.value)} />
-                  <Button onClick={handleSearch}>Go</Button>
+                  {/* <Input placeholder="Search by name or email" marginRight="2" value={search} onChange={(e) => setSearch(e.target.value)} /> */}
+                  <Input placeholder="Search by name or email" marginRight="2" value={search} onChange={(e) => handleSearch(e.target.value)} />
+                  {/* <Button onClick={handleSearch}>Go</Button> */}
+
+                   {/* <Input     onChange={(e) => handleSearch(e.target.value)}             /> */}
+
+
                 </Box>
                 {loading ? (<ChatLoading /> ) : 
                 (

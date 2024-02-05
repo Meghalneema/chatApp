@@ -21,25 +21,6 @@ app.use(UserRouter);
 app.use(chatRouter);
 app.use(messageRouter);
 
-
-// --------------------------deployment------------------------------
-
-// const __dirname1 = path.resolve();
-
-// if (process.env.NODE_ENV === "production") {
-//   app.use(express.static(path.join(__dirname1, "/frontend/build")));
-
-//   app.get("*", (req, res) =>
-//     res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"))
-//   );
-// } else {
-//   app.get("/", (req, res) => {
-//     res.send("API is running..");
-//   });
-// }
-
-// --------------------------deployment------------------------------
-
 app.use(notFound)
 app.use(errorHandler)
 
@@ -48,13 +29,15 @@ const server= app.listen(port,(req,res)=>{
     console.log(`Server started on port ${port}`);
 })
 
+
 const io=require("socket.io")(server,{
   pingTimeout: 60000,
   cors: {
     origin: "http://localhost:5173",
-    // credentials: true,
+    credentials: true,
   },
 })
+
 
 io.on("connection", (socket)=>{
     console.log("connected to sockect.io");
@@ -90,3 +73,23 @@ io.on("connection", (socket)=>{
         socket.leave(userData._id);
     });
 });
+
+
+
+// --------------------------deployment------------------------------
+
+// const __dirname1 = path.resolve();
+
+// if (process.env.NODE_ENV === "production") {
+//   app.use(express.static(path.join(__dirname1, "/frontend/build")));
+
+//   app.get("*", (req, res) =>
+//     res.sendFile(path.resolve(__dirname1, "frontend", "build", "index.html"))
+//   );
+// } else {
+//   app.get("/", (req, res) => {
+//     res.send("API is running..");
+//   });
+// }
+
+// --------------------------deployment------------------------------
